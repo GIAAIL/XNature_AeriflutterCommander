@@ -10,7 +10,7 @@ canvas {
     padding: 0;
 }
 
-.button {
+.button-light {
     transition-duration: 0.4s;
     /* display: block; */
     width: calc(100% - 40px);
@@ -24,14 +24,42 @@ canvas {
     justify-content: center;
     align-items: center;
     font-size: 2.5rem;
-    color: #8c8c8c
+    color: #8c8c8c;
+    background-color: #f2f2f2;
 }
 
-.button:hover {
+.button-dark {
+    transition-duration: 0.4s;
+    /* display: block; */
+    width: calc(100% - 40px);
+    height: calc(20% - 40px);
+    margin: 10px 10px;
+    padding: 10px;
+    text-align: center;
+    /* line-height: 25%; */
+    /* overflow: hidden */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    color: #8c8c8c;
+    background-color: #e0dede;
+}
+
+.button-light:hover {
     /* Green */
     color: #8c8c8c;
     /* background-color: #ffc2d4; */
     font-size: calc(2.5rem + 10px);
+    background-color: #000000;
+}
+
+.button-dark:hover {
+    /* Green */
+    color: #8c8c8c;
+    /* background-color: #ffc2d4; */
+    font-size: calc(2.5rem + 10px);
+    background-color: #000000;
 }
 
 @media only screen and (max-width: 400px) {
