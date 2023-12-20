@@ -103,7 +103,7 @@ function draw() {
     translate(width / 2, height / 10 + 10);
     textAlign(CENTER, CENTER);
     textSize(24);
-    text("Aeriflutter Commander", 0, 0);
+    text("Animabotany Commander", 0, 0);
     translate(0, -24);
     fill(50);
     textSize(12);
