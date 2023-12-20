@@ -41,7 +41,7 @@ function setup() {
     });
 
 
-    let btn_A = createDiv('1');
+    let btn_A = createDiv('伸懶腰與呼吸');
     btn_A.position(0, height / 5);
     btn_A.addClass("button-light");
     // btn_A.style('background-color: #f2f2f2');
@@ -53,7 +53,7 @@ function setup() {
         // btn_A.style('background-color: #f2f2f2');
     })
 
-    let btn_B = createDiv('2');
+    let btn_B = createDiv('偵查與捕食');
     btn_B.position(0, 2 * height / 5);
     btn_B.addClass("button-dark");
     // btn_B.style('background-color: #e0dede');
@@ -65,7 +65,7 @@ function setup() {
         // btn_B.style('background-color: #e0dede');
     })
 
-    let btn_C = createDiv('3');
+    let btn_C = createDiv('隨風晃動');
     btn_C.position(0, height / 5 * 3);
     btn_C.addClass("button-light");
     // btn_C.style('background-color: #f2f2f2');
@@ -77,7 +77,7 @@ function setup() {
         // btn_C.style('background-color: #f2f2f2');
     })
 
-    let btn_D = createDiv('4');
+    let btn_D = createDiv('暈眩與躲避');
     btn_D.position(0, 4 * height / 5);
     btn_D.addClass("button-dark");
     // btn_D.style('background-color: #e0dede');
