@@ -41,7 +41,7 @@ canvas {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2.5rem;
+    font-size: 1rem;
     color: #8c8c8c;
     background-color: #e0dede;
 }
@@ -50,7 +50,7 @@ canvas {
     /* Green */
     color: #8c8c8c;
     /* background-color: #ffc2d4; */
-    font-size: calc(2.5rem + 10px);
+    font-size: calc(1rem + 8px);
     background-color: #000000;
 }
 
