@@ -4,6 +4,9 @@ let p_A, p_B, p_C, p_D;
 let state = "";
 let sendMsg = "";
 let counter = 0;
+let sendingTime;
+let secdTime, preSecd = -1;
+let cdTime = 8;
 
 /// *MQTT* ///--------------------------------
 let mqtt_initialized = false;
@@ -47,7 +50,7 @@ function setup() {
     // btn_A.style('background-color: #f2f2f2');
     btn_A.mousePressed(() => {
         // btn_A.style('background-color: #000000');
-        sendMqttMessage("113XNature_KMFA/Animabotany/Commander", "1");
+        if (counter <= 0) sendMqttMessage("113XNature_KMFA/Animabotany/Commander", "1");
     })
     btn_A.mouseReleased(() => {
         // btn_A.style('background-color: #f2f2f2');
@@ -59,7 +62,7 @@ function setup() {
     // btn_B.style('background-color: #e0dede');
     btn_B.mousePressed(() => {
         // btn_B.style('background-color: #000000');
-        sendMqttMessage("113XNature_KMFA/Animabotany/Commander", "2");
+        if (counter <= 0) sendMqttMessage("113XNature_KMFA/Animabotany/Commander", "2");
     })
     btn_B.mouseReleased(() => {
         // btn_B.style('background-color: #e0dede');
@@ -71,7 +74,7 @@ function setup() {
     // btn_C.style('background-color: #f2f2f2');
     btn_C.mousePressed(() => {
         // btn_C.style('background-color: #000000');
-        sendMqttMessage("113XNature_KMFA/Animabotany/Commander", "3");
+        if (counter <= 0) sendMqttMessage("113XNature_KMFA/Animabotany/Commander", "3");
     })
     btn_C.mouseReleased(() => {
         // btn_C.style('background-color: #f2f2f2');
@@ -83,7 +86,7 @@ function setup() {
     // btn_D.style('background-color: #e0dede');
     btn_D.mousePressed(() => {
         // btn_D.style('background-color: #000000');
-        sendMqttMessage("113XNature_KMFA/Animabotany/Commander", "4");
+        if (counter <= 0) sendMqttMessage("113XNature_KMFA/Animabotany/Commander", "4");
     })
     btn_D.mouseReleased(() => {
         // btn_D.style('background-color: #e0dede');
@@ -98,6 +101,22 @@ function setup() {
 
 function draw() {
     background(255);
+
+    // counter -= 3;
+    if (counter > 0) {
+        secdTime = floor((millis() - sendingTime) / 1000);
+        if (secdTime != preSecd) {
+            preSecd = secdTime;
+            // console.log(preSecd);
+        }
+    }
+
+    if (counter >= 0 && preSecd > (cdTime - 2)) {
+        counter -= 3;
+    }
+
+
+
     push();
     fill(0);
     translate(width / 2, height / 10 + 10);
@@ -110,11 +129,10 @@ function draw() {
     text(state, 0, 0);
     translate(0, 48);
     fill(255, 0, 0, counter);
-    text("sent message: \"" + sendMsg + "\" successfully", 0, 0);
+    text("sent message: \"" + sendMsg + "\" successfully. cool down in " + (cdTime - preSecd) + "s.", 0, 0);
     pop();
 
 
-    counter -= 3;
 
 
 
@@ -126,6 +144,8 @@ function draw() {
 function justSendMsg(msg) {
     sendMsg = msg;
     counter = 300;
+    sendingTime = millis();
+    preSecd = -1;
 }
 
 /// *MQTT* ///--------------------------------
